@@ -1,25 +1,34 @@
 <!DOCTYPE html>
-    <head>
-    </head>
-    <body>
-        <script src="index.js"></script>
-        <div id="main" style="text-align: center; align-items: center; justify-content: center; display:flex; flex-direction: column;">
-            <table id="table" style="border: solid black; text-align: center;" >
-                <thead>
-                    <h1>Weather Data</h1>
-                    <tr>
-                        <th>Date</th>
-                        <th>Humidity</th>
-                        <th>Feels Like</th>
-                        <th>Temp Max</th>
-                        <th>Temp Min</th>
-                        <th>Wind Speed</th>
-                    </tr>
-                </thead>
-                <tbody id="table_body">
-
-                </tbody>
-            </table>
-        </div>
-
-    </body>
+<head>
+	<link rel="stylesheet" type="text/css" href="index.css" />
+</head>
+<body>
+	<script type="text/javascript" src="API.js"></script>
+	<div
+		id="main"
+		style="
+			text-align: center;
+			align-items: center;
+			justify-content: center;
+			display: flex;
+			flex-direction: column;
+		"
+	>
+		<table id="table" style="border: solid black; text-align: center">
+			<thead>
+				<h1>Weather Data</h1>
+				<h3>5 day / 3 Hour</h3>
+				<tr>
+					<th>Hour</th>
+					<th>Date</th>
+					<th>Humidity</th>
+					<th>Feels Like</th>
+					<th>Temp Max</th>
+					<th>Temp Min</th>
+					<th>Wind Speed</th>
+				</tr>
+			</thead>
+			<tbody id="table_body"></tbody>
+		</table>
+	</div>
+</body>
