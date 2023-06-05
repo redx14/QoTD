@@ -1,36 +1,21 @@
-// JSC.Chart looks for variable named data which is an []
-// var data = [collectedData];
-console.log([collectedData]);
-var data = [['1111-11-11 33:11:11:111', [1, 3]]];
+// JSC.Chart looks for variable in last line of code series: [{ points: (enter var name here) }]
 
-// [
-// 	['1/1/2020', [15, 30]],
-// 	['2/1/2020', [18, 35]],
-// 	['3/1/2020', [27, 47]],
-// 	['4/1/2020', [37, 60]],
-// 	['5/1/2020', [46, 71]],
-// 	['6/1/2020', [56, 80]],
-// 	['7/1/2020', [61, 83]],
-// 	['8/1/2020', [60, 81]],
-// 	['9/1/2020', [51, 75]],
-// 	['10/1/2020', [40, 63]],
-// 	['11/1/2020', [30, 48]],
-// 	['12/1/2020', [19, 34]],
-// ];
 var chart = JSC.chart('chartDiv', {
 	debug: true,
 	type: 'area spline',
 	palette: ['crimson', '#03bbfb'],
 	legend_visible: false,
 	title: {
+		//From the data array it can extract data and apply functions such as average/range/max/min
 		label: {
-			text: 'lon: ' + `${lon}` + ' lat: ' + `${lat}` + ' Temperatures', //From the data array it can extract data and apply functions such as average/range/max/min
+			text: 'lon: ' + `${lon}` + ' lat: ' + `${lat}` + ' Temperatures',
 			style_fontWeight: 'normal',
 		},
 	},
 	defaultAxis: { defaultTick_label_style_fontSize: '14px' },
 	yAxis: [
 		{
+			// Left side YAxis F
 			id: 'mainY',
 			label_text: '(°F) Fahrenheit',
 			defaultTick: { label: { text: '%value°F' } },
@@ -54,24 +39,27 @@ var chart = JSC.chart('chartDiv', {
 			],
 		},
 		{
+			//Right side YAxis F converted to C
 			scale_syncWith: 'mainY',
 			orientation: 'opposite',
 			formatString: 'n2',
 			label_text: '(°C) Celcius',
-			defaultTick_label: { text: '{(%Value-32)*5/9:n1}°C' }, // converts F into C
+			defaultTick_label: { text: '{(%Value-32)*5/9:n1}°C' },
 		},
 	],
 	xAxis: {
-		// bottom of graph shows time interval
+		//Time Interval does not except real numerical values only YYYY-MM-DD HH:mm:ss:sss
 		crosshair_enabled: true,
-		formatString: 'HH',
-		scale: { type: 'time', interval: { unit: 'hour' } },
+		label_style_fontSize: 12,
+		formatString: 'g',
+		scale: { type: 'time', interval: { unit: 'day' } },
 	},
+	//ToolTip
 	defaultSeries_shape_opacity: 0.7,
 	defaultPoint: {
 		tooltip: 'High: <b>%yValue°F</b>  ({(%yValue-32)*5/9:n1}°C)<br/>Low: <b>%yStart°F</b>  ({(%yStart-32)*5/9:n1}°C)',
 		marker: { size: 6, color: 'darken' },
 	},
 	toolbar_visible: false,
-	series: [{ name: 'Average Range', points: data }],
+	series: [{ points: collectedData }],
 });
