@@ -1,4 +1,4 @@
-// JSC.Chart looks for variable in last line of code series: [{ points: (enter var name here) }]
+// JSC.Chart looks for data in last line of code series: [{ points: (enter data name here) }]
 
 var chart = JSC.chart('chartDiv', {
 	debug: true,
@@ -8,7 +8,7 @@ var chart = JSC.chart('chartDiv', {
 	title: {
 		//From the data array it can extract data and apply functions such as average/range/max/min
 		label: {
-			text: 'lon: ' + `${lon}` + ' lat: ' + `${lat}` + ' Temperatures',
+			text: 'Weekly Forecast for: ',
 			style_fontWeight: 'normal',
 		},
 	},
@@ -51,7 +51,7 @@ var chart = JSC.chart('chartDiv', {
 		//Time Interval does not except real numerical values only YYYY-MM-DD HH:mm:ss:sss
 		crosshair_enabled: true,
 		label_style_fontSize: 12,
-		formatString: 'g',
+		formatString: 'd',
 		scale: { type: 'time', interval: { unit: 'day' } },
 	},
 	//ToolTip
