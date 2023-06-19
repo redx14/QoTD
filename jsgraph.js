@@ -8,7 +8,7 @@ var chart = JSC.chart('chartDiv', {
 	title: {
 		//From the data array it can extract data and apply functions such as average/range/max/min
 		label: {
-			text: 'Weekly Forecast for: ',
+			text: 'Weekly Forecast for: ' + `${loc}`,
 			style_fontWeight: 'normal',
 		},
 	},

@@ -1,4 +1,3 @@
-const _KEY = '15ae29c6c05c42a8a16152157230606';
 let zipcode = '07726';
 let interval = 7; // number of days
 let collectedData = [];
@@ -20,16 +19,13 @@ let loc = '';
 // 	['12/1/2020', [19, 34]],
 // ];
 
-const API = `https://api.weatherapi.com/v1/forecast.json?key=${_KEY}&q=${zipcode}&days=${interval}`;
+const API = `https://api.weatherapi.com/v1/forecast.json?key=${KEY}&q=${zipcode}&days=${interval}`;
 
 fetch(API)
 	.then((res) => res.json())
 	.then((data) => {
-		loc = data.location.name + ', ' + data.location.region;
 		let displayData = '';
-		console.log(data.forecast.forecastday);
 		data?.forecast?.forecastday?.map((values) => {
-			console.log(values);
 			collectedData.push([values.date, [values.day.mintemp_f, values.day.maxtemp_f]]);
 			displayData += `<tr>
 		        <td style="border: 1px solid black">${values.date}</td>
@@ -38,8 +34,9 @@ fetch(API)
 		        <td style="border: 1px solid black">${values.day.maxtemp_f} F</td>
 		        <td style="border: 1px solid black">${values.day.mintemp_f} F</td>
 		        <td style="border: 1px solid black">${values.day.maxwind_mph} MPH</td>
-					<td style="border: 1px solid black">${values.day.uv}</td>
+				<td style="border: 1px solid black">${values.day.uv}</td>
 		    </tr>`;
 		});
+		loc = data.location.name + ', ' + data.location.region;
 		document.getElementById('table_body').innerHTML = displayData;
 	});
