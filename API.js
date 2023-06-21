@@ -1,6 +1,7 @@
 let zipcode = '07726';
-let interval = 7; // number of days
+let interval = 3; // number of days has to be 3 due to free api version
 let collectedData = [];
+let collectedData2 = [];
 let loc = '';
 
 // data has to be in this format
@@ -25,7 +26,7 @@ fetch(API)
 	.then((res) => res.json())
 	.then((data) => {
 		let displayData = '';
-		data?.forecast?.forecastday?.map((values) => {
+		data?.forecast?.forecastday?.forEach((values) => {
 			collectedData.push([values.date, [values.day.mintemp_f, values.day.maxtemp_f]]);
 			displayData += `<tr>
 		        <td style="border: 1px solid black">${values.date}</td>
@@ -36,7 +37,12 @@ fetch(API)
 		        <td style="border: 1px solid black">${values.day.maxwind_mph} MPH</td>
 				<td style="border: 1px solid black">${values.day.uv}</td>
 		    </tr>`;
+			values?.hour?.forEach((details) => {
+				collectedData2.push([details.time, details.temp_f]);
+			});
 		});
+		console.log(collectedData);
+		console.log(collectedData2);
 		loc = data.location.name + ', ' + data.location.region;
 		document.getElementById('table_body').innerHTML = displayData;
 	});

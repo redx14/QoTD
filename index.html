@@ -7,7 +7,6 @@
 	<script type="text/html" src=" ../jsc/icons/weather/sun.js"></script>
 </head>
 <body>
-	<div id="chartDiv" style="max-width: 740px; height: 400px; margin: 0px auto"></div>
 	<div
 		id="main"
 		style="text-align: center; align-items: center; justify-content: center; display: flex; flex-direction: column"
@@ -15,7 +14,7 @@
 		<table id="table" style="border: solid black; text-align: center">
 			<thead>
 				<h1>Weather Data</h1>
-				<h3>Weekly Forecast</h3>
+				<h3>3 Day Weather Forecast</h3>
 				<tr>
 					<th>Date</th>
 					<th>Humidity</th>
@@ -29,8 +28,11 @@
 			<tbody id="table_body"></tbody>
 		</table>
 	</div>
+	<div id="chartDiv" style="max-width: 740px; height: 400px; margin: 0px auto"></div>
+	<div id="chartDiv2" style="max-width: 740px; height: 400px; margin: 0px auto"></div>
 </body>
 <script type="text/javascript" src="boogawooga.js"></script>
 <script type="text/javascript" src="API.js"></script>
 <script src="https://code.jscharting.com/2.9.0/jscharting.js"></script>
 <script src="jsgraph.js"></script>
+<script src="jsgraph2.js"></script>

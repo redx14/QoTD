@@ -23,7 +23,7 @@ var chart = JSC.chart('chartDiv', {
 				{
 					value: [0, 32],
 					label: {
-						text: '<icon name=weather/snowflake size=15 verticalAlign=center margin_right=4> Freezing',
+						text: '<icon name=weather/snowflake size=15 verticalAlign=center margin_right=9> Freezing',
 						style_fontSize: 14,
 						align: 'center',
 					},
@@ -55,7 +55,7 @@ var chart = JSC.chart('chartDiv', {
 		scale: { type: 'time', interval: { unit: 'day' } },
 	},
 	//ToolTip
-	defaultSeries_shape_opacity: 0.7,
+	defaultSeries_shape_opacity: 0.2,
 	defaultPoint: {
 		tooltip: 'High: <b>%yValue°F</b>  ({(%yValue-32)*5/9:n1}°C)<br/>Low: <b>%yStart°F</b>  ({(%yStart-32)*5/9:n1}°C)',
 		marker: { size: 6, color: 'darken' },
