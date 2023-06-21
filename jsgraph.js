@@ -23,7 +23,7 @@ var chart = JSC.chart('chartDiv', {
 				{
 					value: [0, 32],
 					label: {
-						text: '<icon name=weather/snowflake size=15 verticalAlign=center margin_right=9> Freezing',
+						text: '<icon name=weather/snowflake size=15 verticalAlign=center  margin_right=4> Freezing',
 						style_fontSize: 14,
 						align: 'center',
 					},
